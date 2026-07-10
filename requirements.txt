@@ -1,0 +1,26 @@
+# ==================================================
+# Enterprise-Grade Azure End-to-End Data Engineering Pipeline
+# Python Dependencies
+# ==================================================
+
+# Core Data Processing
+pyspark>=3.5.0
+delta-spark>=3.2.0
+
+# Data Manipulation
+pandas>=2.2.0
+numpy>=1.26.0
+
+# Azure SDK
+azure-storage-file-datalake>=12.18.0
+azure-identity>=1.17.0
+
+# Power BI (Optional)
+pyarrow>=16.1.0
+
+# Notebook Support
+ipykernel>=6.29.0
+jupyter>=1.0.0
+
+# Utility
+python-dateutil>=2.9.0

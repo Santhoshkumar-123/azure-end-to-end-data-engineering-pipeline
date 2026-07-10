@@ -1,0 +1,25 @@
+{
+    "name": "Daily_ETL_Trigger",
+    "properties": {
+        "annotations": [],
+        "runtimeState": "Stopped",
+        "pipelines": [
+            {
+                "pipelineReference": {
+                    "referenceName": "AZ-ETL_Pipeline",
+                    "type": "PipelineReference"
+                }
+            }
+        ],
+        "type": "ScheduleTrigger",
+        "typeProperties": {
+            "recurrence": {
+                "frequency": "Day",
+                "interval": 1,
+                "startTime": "2026-07-09T17:21:00",
+                "endTime": "2026-07-14T11:38:00",
+                "timeZone": "India Standard Time"
+            }
+        }
+    }
+}

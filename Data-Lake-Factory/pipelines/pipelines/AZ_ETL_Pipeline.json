@@ -1,0 +1,84 @@
+{
+    "name": "AZ-ETL_Pipeline",
+    "properties": {
+        "activities": [
+            {
+                "name": "Bronze-to-Silver",
+                "type": "DatabricksNotebook",
+                "dependsOn": [],
+                "policy": {
+                    "timeout": "0.12:00:00",
+                    "retry": 0,
+                    "retryIntervalInSeconds": 30,
+                    "secureOutput": false,
+                    "secureInput": false
+                },
+                "userProperties": [],
+                "typeProperties": {
+                    "notebookPath": "/Users/santhosh5375kumar@gmail.com/Azure_Data_Engineering_Project/Silver/01_Bronze_to_Silver_Clean"
+                },
+                "linkedServiceName": {
+                    "referenceName": "DataBricks_LS",
+                    "type": "LinkedServiceReference"
+                }
+            },
+            {
+                "name": "Silver-to-Gold",
+                "type": "DatabricksNotebook",
+                "dependsOn": [
+                    {
+                        "activity": "Bronze-to-Silver",
+                        "dependencyConditions": [
+                            "Succeeded"
+                        ]
+                    }
+                ],
+                "policy": {
+                    "timeout": "0.12:00:00",
+                    "retry": 0,
+                    "retryIntervalInSeconds": 30,
+                    "secureOutput": false,
+                    "secureInput": false
+                },
+                "userProperties": [],
+                "typeProperties": {
+                    "notebookPath": "/Users/santhosh5375kumar@gmail.com/Azure_Data_Engineering_Project/Gold/Silver_to_Gold"
+                },
+                "linkedServiceName": {
+                    "referenceName": "DataBricks_LS",
+                    "type": "LinkedServiceReference"
+                }
+            },
+            {
+                "name": "Gold-to-Synapse",
+                "type": "DatabricksNotebook",
+                "dependsOn": [
+                    {
+                        "activity": "Silver-to-Gold",
+                        "dependencyConditions": [
+                            "Succeeded"
+                        ]
+                    }
+                ],
+                "policy": {
+                    "timeout": "0.12:00:00",
+                    "retry": 0,
+                    "retryIntervalInSeconds": 30,
+                    "secureOutput": false,
+                    "secureInput": false
+                },
+                "userProperties": [],
+                "typeProperties": {
+                    "notebookPath": "/Users/santhosh5375kumar@gmail.com/Azure_Data_Engineering_Project/Synapse/Gold_to_Parquet"
+                },
+                "linkedServiceName": {
+                    "referenceName": "DataBricks_LS",
+                    "type": "LinkedServiceReference"
+                }
+            }
+        ],
+        "annotations": [],
+        "lastPublishTime": "2026-07-09T16:34:23Z"
+    },
+    "type": "Microsoft.DataFactory/factories/pipelines"
+}
