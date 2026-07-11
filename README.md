@@ -1,474 +1,277 @@
 <div align="center">
 
-# 🚀 Enterprise-Grade Azure End-to-End Data Engineering Pipeline
+# Enterprise-Grade Azure End-to-End Data Engineering Pipeline
 
-### Medallion Architecture (Bronze → Silver → Gold) using Azure Data Factory, Azure Databricks, Azure Synapse Analytics & Power BI
-
-<p align="center">
+### Medallion Architecture using Azure Data Lake Storage Gen2, Azure Databricks, Azure Data Factory, Azure Synapse Analytics, and Power BI
 
 ![Azure](https://img.shields.io/badge/Microsoft-Azure-0078D4?style=for-the-badge&logo=microsoftazure&logoColor=white)
-![Databricks](https://img.shields.io/badge/Azure-Databricks-EF3E42?style=for-the-badge&logo=databricks&logoColor=white)
+![Databricks](https://img.shields.io/badge/Databricks-EF3E42?style=for-the-badge&logo=databricks&logoColor=white)
 ![PySpark](https://img.shields.io/badge/PySpark-FF9900?style=for-the-badge&logo=apachespark&logoColor=white)
-![Delta Lake](https://img.shields.io/badge/Delta-Lake-00ADD8?style=for-the-badge)
-![Azure Data Factory](https://img.shields.io/badge/Azure-Data%20Factory-0062AD?style=for-the-badge)
-![Azure Synapse](https://img.shields.io/badge/Azure-Synapse-0089D6?style=for-the-badge)
-![Power BI](https://img.shields.io/badge/Power-BI-F2C811?style=for-the-badge&logo=powerbi&logoColor=black)
+![PowerBI](https://img.shields.io/badge/Power-BI-F2C811?style=for-the-badge&logo=powerbi&logoColor=black)
 
-</p>
-
----
-
-### 📊 End-to-End Automated Azure ETL Pipeline for Enterprise Analytics
-
-Transforming raw enterprise data into business-ready insights using Azure's modern data engineering ecosystem.
+A practical Azure Data Engineering project demonstrating how raw business data is transformed into analytics-ready datasets using a modern cloud data platform.
 
 </div>
 
-
-architecture/
-      architecture-diagram.png
 ---
 
-# 🏗️ Solution Architecture
+# Architecture
 
 <p align="center">
-
 <img src="architecture/architecture-diagram.png" width="100%">
-
 </p>
 
 ---
-# 📖 Project Overview
 
-This project demonstrates the implementation of a **production-style Azure End-to-End Data Engineering Pipeline** following the **Medallion Architecture** using Microsoft Azure services.
+# Project Overview
 
-The solution ingests raw enterprise data into Azure Data Lake Storage Gen2, performs scalable data transformations using Azure Databricks (PySpark), orchestrates workflows with Azure Data Factory, publishes curated analytical datasets through Azure Synapse Analytics, and delivers interactive business dashboards using Microsoft Power BI.
+This project demonstrates the implementation of an end-to-end Azure Data Engineering pipeline using the Medallion Architecture (Bronze → Silver → Gold).
 
-The project simulates how enterprise organizations build modern cloud-based analytics platforms capable of processing large-scale datasets efficiently and reliably.
+The pipeline ingests raw CSV datasets into Azure Data Lake Storage Gen2, processes them using Azure Databricks (PySpark), orchestrates execution through Azure Data Factory, publishes analytical datasets in Azure Synapse Analytics, and visualizes business insights using Power BI.
 
-# 🎯 Business Problem
+The primary objective of this project was to gain practical experience with modern cloud-based ETL pipelines, data transformation, dimensional modeling, and workflow orchestration.
 
-Organizations collect data from multiple operational systems in different formats.
+---
 
-Raw data usually contains:
+# Technology Stack
 
-- Duplicate records
-- Missing values
-- Invalid data types
-- Inconsistent naming conventions
-- Multiple source systems
-- Poor data quality
-
-Business users cannot directly use this raw data for reporting and analytics.
-
-A scalable ETL pipeline is required to:
-
-- Ingest raw enterprise datasets
-- Clean and validate incoming data
-- Apply business transformations
-- Build analytical models
-- Deliver trusted datasets for reporting
-
-This project solves that problem using Microsoft's Azure cloud platform.
-
-# 💡 Solution
-
-The solution implements Microsoft's recommended **Medallion Architecture**.
-
-```
-Raw Data
-     │
-     ▼
-Bronze Layer
-     │
-     ▼
-Silver Layer
-     │
-     ▼
-Gold Layer
-     │
-     ▼
-Azure Synapse
-     │
-     ▼
-Power BI
-```
-
-Each layer progressively improves data quality and prepares the dataset for analytics and business intelligence.
-
-
-# ⭐ Key Features
-
-✔ End-to-End Azure Data Engineering Pipeline
-
-✔ Medallion Architecture (Bronze → Silver → Gold)
-
-✔ Azure Data Lake Storage Gen2
-
-✔ Azure Databricks (PySpark)
-
-✔ Delta Lake
-
-✔ Azure Data Factory Orchestration
-
-✔ Azure Synapse Analytics
-
-✔ Power BI Dashboard
-
-✔ Automated Pipeline Trigger
-
-✔ Fact & Dimension Modeling
-
-✔ Enterprise Data Warehouse Design
-
-✔ Star Schema
-
-✔ Data Quality Validation
-
-✔ Duplicate Removal
-
-✔ Schema Standardization
-
-✔ Automated Data Processing
-
-# 🛠️ Technology Stack
-
-| Category | Technologies |
-|----------|--------------|
-| Programming | Python, PySpark, SQL |
+| Category | Technology |
+|-----------|------------|
 | Cloud Platform | Microsoft Azure |
-| Data Lake | Azure Data Lake Storage Gen2 |
+| Programming | Python, PySpark, SQL |
+| Storage | Azure Data Lake Storage Gen2 |
 | Data Processing | Azure Databricks |
-| Workflow Orchestration | Azure Data Factory |
-| Data Warehouse | Azure Synapse Analytics |
-| Visualization | Microsoft Power BI |
+| Orchestration | Azure Data Factory |
+| Analytics | Azure Synapse Analytics |
+| Visualization | Power BI |
 | Storage Format | Delta Lake |
-| Architecture | Medallion Architecture |
-| Data Modeling | Star Schema |
 | Version Control | Git & GitHub |
 
-# ☁ Azure Services Used
+---
 
-| Azure Service | Purpose |
-|--------------|---------|
-| Azure Data Lake Storage Gen2 | Store Bronze, Silver and Gold data |
-| Azure Databricks | Data Engineering using PySpark |
-| Azure Data Factory | ETL Pipeline Orchestration |
-| Azure Synapse Analytics | Analytical Data Warehouse |
-| Microsoft Power BI | Interactive Dashboards |
+# Architecture Overview
 
+```
 
-# 📂 Repository Structure
+CSV Files
 
-```text
-azure-end-to-end-data-engineering-pipeline/
+↓
 
-├── architecture/
-├── notebooks/
-├── adf/
-├── powerbi/
-├── screenshots/
-├── docs/
-├── README.md
-├── LICENSE
-└── .gitignore
+Azure Data Lake Storage Gen2
+
+(Bronze)
+
+↓
+
+Azure Databricks
+
+(Bronze → Silver)
+
+↓
+
+Azure Databricks
+
+(Silver → Gold)
+
+↓
+
+Azure Synapse Analytics
+
+↓
+
+Power BI Dashboard
+
 ```
 
 ---
 
-# 🏗️ Solution Architecture
+# Key Features
 
-The project follows Microsoft's recommended **Medallion Architecture (Bronze → Silver → Gold)** to progressively improve data quality as it moves through the pipeline.
-
-<p align="center">
-
-<img src="architecture/architecture-diagram.png" width="100%">
-
-</p>
+- End-to-end ETL pipeline
+- Medallion Architecture
+- Data quality validation
+- Delta Lake implementation
+- Fact and Dimension modeling
+- Star Schema
+- Azure Data Factory orchestration
+- Interactive Power BI dashboard
 
 ---
 
-# 🔄 End-to-End Data Pipeline
+
+# Solution Architecture
+
+This project follows the **Medallion Architecture**, where data quality improves as it moves through three layers:
+
+- **Bronze** – Raw data ingestion
+- **Silver** – Data cleansing and standardization
+- **Gold** – Business-ready analytical datasets
+
+Each layer has a specific responsibility, making the pipeline modular, scalable, and easier to maintain.
+
+---
+
+# Data Pipeline
 
 ```text
-        CSV Files
+AdventureWorks CSV Files
            │
            ▼
 Azure Data Lake Storage Gen2
-      (Bronze Layer)
+        Bronze Layer
            │
            ▼
 Azure Data Factory
-(Workflow Orchestration)
+ (Pipeline Orchestration)
            │
            ▼
 Azure Databricks
-Bronze → Silver
-(Data Cleaning & Validation)
+ Bronze → Silver
            │
            ▼
 Azure Databricks
-Silver → Gold
-(Business Transformation)
-           │
-           ▼
-Azure Databricks
-Gold → Synapse
+ Silver → Gold
            │
            ▼
 Azure Synapse Analytics
-(SQL Views)
            │
            ▼
-Microsoft Power BI
-(Business Dashboard)
+Power BI Dashboard
 ```
 
 ---
 
-# 🥉 Bronze Layer – Raw Data Ingestion
+# Medallion Architecture
 
-The **Bronze Layer** serves as the landing zone for raw enterprise datasets.
+## Bronze Layer
 
-### Purpose
+The Bronze layer stores the raw source data exactly as it is received.
 
-- Store raw source files
+**Responsibilities**
+
+- Store source CSV files
 - Preserve original data
-- Maintain historical source data
-- Enable reprocessing if downstream failures occur
+- Maintain historical records
+- Support data reprocessing
 
-### Source Files
+**Source Files**
 
-- Customers.csv
-- Products.csv
-- ProductCategories.csv
-- ProductSubcategories.csv
-- Returns.csv
-- Territories.csv
-- Calendar.csv
-- Sales_2015.csv
-- Sales_2016.csv
-- Sales_2017.csv
+- Customers
+- Products
+- Product Categories
+- Product Subcategories
+- Calendar
+- Territories
+- Returns
+- Sales (2015–2017)
 
-### Storage
-
-Azure Data Lake Storage Gen2
-
-Container:
-
-```
-bronze
-```
-
-### Bronze Characteristics
-
-- Raw CSV Files
-- No business transformations
-- Original schema preserved
-- Acts as Single Source of Truth
+<p align="center">
+<img src="Snapshots/03-bronze-container.png" width="90%">
+</p>
 
 ---
 
-# 🥈 Silver Layer – Data Cleansing & Standardization
+## Silver Layer
 
-The Silver layer transforms raw datasets into clean, validated, and standardized datasets.
+The Silver layer transforms raw data into clean and standardized datasets using PySpark.
 
-### Data Engineering Tasks
+**Data Processing**
 
-✔ Remove duplicate records
+- Remove duplicate records
+- Handle missing values
+- Convert data types
+- Standardize column names
+- Validate schema
+- Improve data quality
 
-✔ Handle missing values
+**Output**
 
-✔ Standardize column names
-
-✔ Convert data types
-
-✔ Schema validation
-
-✔ Null value handling
-
-✔ Data quality checks
-
-✔ Data normalization
-
-✔ Standardized Delta Tables
-
-### Output
-
-```
-Customers
-
-Products
-
-Calendar
-
-Returns
-
-Sales
-
-Territories
-```
-
-Stored as Delta tables inside the Silver layer.
+- Customers
+- Products
+- Calendar
+- Territories
+- Returns
+- Sales
+![alt text](image.png)
 
 ---
 
-# 🥇 Gold Layer – Business Ready Data
+## Gold Layer
 
-The Gold layer prepares data for analytics and reporting.
+The Gold layer prepares curated datasets optimized for analytics and reporting.
 
-Business logic is applied to create analytical datasets following dimensional modeling principles.
+**Dimension Tables**
 
-### Dimension Tables
+- DimCustomer
+- DimProduct
+- DimCalendar
+- DimTerritory
 
-```
-DimCustomer
+**Fact Table**
 
-DimProduct
+- FactSales
 
-DimCalendar
-
-DimTerritory
-```
-
-### Fact Table
-
-```
-FactSales
-```
-
-These tables form a **Star Schema**, enabling efficient reporting and analytics. The Gold layer is intended for business-ready, curated datasets optimized for BI workloads.
+The Gold layer follows a **Star Schema** design to support efficient analytical queries.
 
 ---
 
-# ⭐ Star Schema
+# Data Model
 
 ```text
-                   DimCustomer
-                        │
-                        │
-DimCalendar ───── FactSales ───── DimProduct
-                        │
-                        │
-                  DimTerritory
+               DimCustomer
+                    │
+                    │
+DimCalendar ─── FactSales ─── DimProduct
+                    │
+                    │
+              DimTerritory
 ```
-
-### Fact Table
-
-FactSales stores business transactions such as:
-
-- Sales Amount
-- Order Quantity
-- ProductKey
-- CustomerKey
-- TerritoryKey
-- DateKey
-
-### Dimension Tables
-
-Each Dimension contains descriptive attributes.
-
-Example:
-
-**DimCustomer**
-
-- CustomerKey
-- First Name
-- Last Name
-- Gender
-- Occupation
-- Annual Income
-
-**DimProduct**
-
-- Product
-- Category
-- SubCategory
-- Price
-
-**DimCalendar**
-
-- Date
-- Month
-- Quarter
-- Year
-
-**DimTerritory**
-
-- Country
-- Region
-- Group
 
 ---
 
-# ⚙️ ETL Workflow
+# ETL Workflow
 
-The project follows a traditional **ETL (Extract → Transform → Load)** architecture.
+The pipeline follows an **Extract → Transform → Load (ETL)** approach.
+
+1. Extract raw CSV files from Azure Data Lake Storage.
+2. Transform data using Azure Databricks (PySpark).
+3. Load curated datasets into Azure Synapse Analytics.
+4. Visualize business insights using Power BI.
+
+---
+
+# Azure Data Factory
+
+Azure Data Factory orchestrates the complete workflow by executing Databricks notebooks in sequence.
 
 ```text
-Extract
-    │
-    ▼
-CSV Files
-    │
-    ▼
-Transform
-(Azure Databricks)
-    │
-    ▼
-Bronze
-    │
-    ▼
-Silver
-    │
-    ▼
-Gold
-    │
-    ▼
-Load
-(Azure Synapse Analytics)
-    │
-    ▼
-Power BI
-```
-
-Transformations are performed in Azure Databricks before loading the curated data into Azure Synapse, which classifies this workflow as ETL rather than ELT.
-
----
-
-# 🔁 Azure Data Factory Orchestration
-
-Azure Data Factory orchestrates the complete workflow.
-
-Pipeline Activities
-
-```
 Bronze_to_Silver
-
-↓
-
+        │
+        ▼
 Silver_to_Gold
-
-↓
-
+        │
+        ▼
 Gold_to_Synapse
 ```
 
-Features implemented:
+**Capabilities**
 
-- Notebook orchestration
 - Sequential execution
 - Activity dependency management
 - Pipeline monitoring
-- Scheduled trigger automation
+- Scheduled execution
+
+<p align="center">
+<img src="Snapshots/05-adf-pipeline.png" width="90%">
+</p>
 
 ---
 
-# 📊 Azure Synapse Analytics
+# Azure Synapse Analytics
 
-The Gold layer is exposed through Azure Synapse Analytics for reporting.
+The Gold layer is exposed through SQL views for reporting.
 
-Published Views
+**Published Views**
 
 - vw_DimCustomer
 - vw_DimProduct
@@ -476,615 +279,308 @@ Published Views
 - vw_DimTerritory
 - vw_FactSales
 
-These views are consumed directly by Microsoft Power BI.
+<p align="center">
+<img src="Snapshots/07-synapse-views.png" width="90%">
+</p>
 
 ---
 
-# 📈 Power BI Dashboard
+# Power BI Dashboard
 
-An interactive dashboard was developed to visualize business insights.
+Power BI connects to Azure Synapse Analytics to provide interactive reporting.
 
-### Dashboard Highlights
+**Dashboard Highlights**
 
-- Total Sales
-- Total Customers
-- Total Orders
-- Sales by Category
-- Sales by Country
-- Monthly Sales Trend
-- Sales by Gender
-- Product Performance
+- Sales Overview
 - Customer Analysis
+- Product Performance
 - Territory Analysis
+- Monthly Sales Trend
+- Category-wise Sales
 
-The dashboard is built using the curated Synapse views and follows a star-schema semantic model for efficient reporting.
-
----
-
-
----
-
-# ⚙️ Project Implementation
-
-This project was developed by implementing an enterprise-style Azure Data Engineering architecture using Microsoft's cloud-native data platform.
-
-The pipeline ingests raw CSV datasets, transforms them using PySpark in Azure Databricks, orchestrates the workflow using Azure Data Factory, exposes analytical views through Azure Synapse Analytics, and visualizes insights using Microsoft Power BI.
+<p align="center">
+<img src="Snapshots/08-dashboard.png" width="90%">
+</p>
 
 ---
 
-# ☁ Azure Resources
-
-The following Azure services were used throughout the project.
-
-| Azure Service | Purpose |
-|--------------|---------|
-| Azure Data Lake Storage Gen2 | Store Bronze, Silver and Gold layers |
-| Azure Databricks | Data transformation using PySpark |
-| Azure Data Factory | Workflow orchestration |
-| Azure Synapse Analytics | SQL analytics layer |
-| Power BI | Business Intelligence Dashboard |
-
----
-
-# 📂 Repository Structure
+# Repository Structure
 
 ```text
 azure-end-to-end-data-engineering-pipeline/
-
+│
 ├── architecture/
+│   ├── architecture-diagram.png
+│   └── architecture.drawio
+│
 ├── notebooks/
+│   ├── 01_Bronze_to_Silver_Clean.py
+│   ├── 02_Silver_to_Gold.py
+│   └── 03_Gold_to_Synapse.py
+│
 ├── adf/
+│   ├── pipelines/
+│   ├── datasets/
+│   ├── linkedServices/
+│   └── triggers/
+│
 ├── powerbi/
+│   ├── Dashboard.pbix
+│   ├── Dashboard.pdf
+│   └── Dashboard.png
+│
 ├── screenshots/
+│
 ├── docs/
-├── sample-data/
+│   ├── Project_Report.pdf
+│   ├── User_Guide.pdf
+│   └── Installation_Guide.pdf
+│
 ├── README.md
 ├── LICENSE
+├── requirements.txt
 └── .gitignore
 ```
 
 ---
 
-# 📁 Folder Description
-
-| Folder | Description |
-|---------|-------------|
-| architecture | Solution architecture diagrams |
-| notebooks | Azure Databricks notebooks |
-| adf | Azure Data Factory artifacts |
-| powerbi | Power BI report and dashboard |
-| screenshots | Project screenshots |
-| docs | Project documentation |
-
-
----
-
-# 📒 Azure Databricks Notebooks
-
-Three Databricks notebooks were developed to implement the Medallion Architecture.
-
-## Notebook 1
-
-### Bronze → Silver
-
-Responsibilities:
-
-- Read raw CSV files
-- Validate schema
-- Remove duplicates
-- Handle missing values
-- Convert data types
-- Standardize column names
-- Store cleaned Delta tables
-
-Output
-
-```
-Silver Layer
-```
-
----
-
-## Notebook 2
-
-### Silver → Gold
-
-Responsibilities
-
-- Read Silver Delta tables
-- Apply business transformations
-- Create Dimension tables
-- Create Fact table
-- Implement Star Schema
-
-Output
-
-```
-DimCustomer
-
-DimProduct
-
-DimCalendar
-
-DimTerritory
-
-FactSales
-```
-
----
-
-## Notebook 3
-
-### Gold → Synapse
-
-Responsibilities
-
-- Read Gold Delta tables
-- Publish analytical datasets
-- Create SQL Views
-- Enable Power BI reporting
-
-Output
-
-```
-vw_DimCustomer
-
-vw_DimProduct
-
-vw_DimCalendar
-
-vw_DimTerritory
-
-vw_FactSales
-```
-
----
-
-# 🔄 Azure Data Factory Pipeline
-
-The entire workflow is orchestrated using Azure Data Factory.
-
-Pipeline Activities
-
-```text
-Bronze_to_Silver
-
-↓
-
-Silver_to_Gold
-
-↓
-
-Gold_to_Synapse
-```
-
-Pipeline Features
-
-- Sequential execution
-- Dependency management
-- Activity monitoring
-- Retry support
-- Automated scheduling
-
----
-
-# ⏱ Pipeline Trigger
-
-The pipeline is configured with an Azure Data Factory **Schedule Trigger**.
-
-### Current Automation
-
-```text
-Schedule Trigger
-
-↓
-
-Azure Data Factory
-
-↓
-
-Bronze → Silver
-
-↓
-
-Silver → Gold
-
-↓
-
-Gold → Synapse
-```
-
-This allows the ETL process to execute automatically at scheduled intervals without manual intervention.
-
-> **Future Enhancement:** Replace the schedule trigger with an **Event Trigger** so the pipeline starts automatically whenever new files are uploaded to the Bronze container.
-
----
-
-# 📊 Azure Synapse Analytics
-
-Azure Synapse serves as the analytics layer.
-
-The Gold layer is published as SQL views.
-
-Available Views
-
-- vw_DimCustomer
-- vw_DimProduct
-- vw_DimCalendar
-- vw_DimTerritory
-- vw_FactSales
-
-These views are consumed directly by Microsoft Power BI.
-
----
-
-# 📈 Power BI Dashboard
-
-Interactive dashboards were created using Azure Synapse views.
-
-### Business KPIs
-
-- Total Sales
-- Total Orders
-- Total Customers
-- Sales by Category
-- Sales by Country
-- Monthly Sales Trend
-- Customer Demographics
-- Territory Analysis
-
----
-
-# 📸 Project Screenshots
+# Screenshots
 
 ## Azure Resources
- 
-![Azure Resources](Snapshots/01-resource-group.png)
- 
 
----
-
-## Bronze Layer
-
- 
-![Bronze Layer](Snapshots/03-bronze-container.png)
- 
-
----
-
-## Azure Databricks
-
- 
-![Databricks](Snapshots/04-databricks-workspace.png)
- 
+<p align="center">
+<img src="Snapshots/01-resource-group.png" width="95%">
+</p>
 
 ---
 
 ## Azure Data Factory Pipeline
 
- 
-![ADF Pipeline](Snapshots/05-adf-pipeline.png)
- 
+<p align="center">
+<img src="Snapshots/05-adf-pipeline.png" width="95%">
+</p>
 
 ---
 
-## Pipeline Automation
+## Azure Synapse Analytics
 
- 
-![Trigger Runs](Snapshots/06-trigger-runs.png)
- 
-
----
-
-## Azure Synapse
-
- 
-![Synapse](Snapshots/07-synapse-views.png)
- 
+<p align="center">
+<img src="Snapshots/07-synapse-views.png" width="95%">
+</p>
 
 ---
 
 ## Power BI Dashboard
 
- 
-![Dashboard](Snapshots/08-dashboard.png)
- 
+<p align="center">
+<img src="Snapshots/08-dashboard.png" width="95%">
+</p>
 
 ---
 
-# 🚀 Key Achievements
-
-✔ Designed an enterprise-grade Medallion Architecture
-
-✔ Built an end-to-end ETL pipeline using Azure services
-
-✔ Automated workflow orchestration using Azure Data Factory
-
-✔ Implemented Delta Lake for optimized storage
-
-✔ Developed dimensional models (Fact & Dimension tables)
-
-✔ Built an interactive Power BI dashboard
-
-✔ Implemented scheduled pipeline execution
-
-✔ Created a scalable and modular data engineering solution
-
----
-
----
-
-# 🚀 Getting Started
-
-Follow the steps below to reproduce the project.
+# Getting Started
 
 ## Prerequisites
 
-Before running the project, ensure you have access to the following:
-
 - Microsoft Azure Subscription
 - Azure Data Lake Storage Gen2
-- Azure Databricks Workspace
+- Azure Databricks
 - Azure Data Factory
 - Azure Synapse Analytics
 - Power BI Desktop
+- Python 3.10+
 - Git
-- GitHub Account
 
 ---
 
-# 📥 Clone Repository
+## Clone Repository
 
 ```bash
-git clone https://github.com/Santhoshkumar-123/azure-end-to-end-data-engineering-pipeline
+git clone https://github.com/Santhoshkumar-123/azure-end-to-end-data-engineering-pipeline.git
 
 cd azure-end-to-end-data-engineering-pipeline
 ```
 
 ---
 
-# ⚙️ Project Setup
+## Deployment Steps
 
-## Step 1
-
-Create an Azure Resource Group.
-
----
-
-## Step 2
-
-Create the following Azure services:
-
-- Azure Data Lake Storage Gen2
-- Azure Databricks
-- Azure Data Factory
-- Azure Synapse Analytics
+1. Create Azure resources.
+2. Upload the AdventureWorks dataset to the Bronze container.
+3. Import the Databricks notebooks.
+4. Configure Azure Data Factory linked services.
+5. Execute the pipeline.
+6. Verify SQL views in Azure Synapse.
+7. Open and refresh the Power BI report.
 
 ---
 
-## Step 3
+# Pipeline Execution
 
-Upload the AdventureWorks CSV files into the **Bronze** container.
-
-```
-bronze/
-```
-
----
-
-## Step 4
-
-Import the Databricks notebooks.
-
-```
-01_Bronze_to_Silver_Clean
-
-02_Silver_to_Gold
-
-03_Gold_to_Synapse
-```
-
----
-
-## Step 5
-
-Create the Azure Data Factory pipeline.
-
-```
-Bronze_to_Silver
+```text
+Upload CSV Files
 
 ↓
 
-Silver_to_Gold
+Run Azure Data Factory Pipeline
 
 ↓
 
-Gold_to_Synapse
+Bronze → Silver
+
+↓
+
+Silver → Gold
+
+↓
+
+Gold → Synapse
+
+↓
+
+Power BI Dashboard
 ```
 
 ---
 
-## Step 6
-
-Publish all Azure Data Factory artifacts.
-
----
-
-## Step 7
-
-Execute the pipeline manually or using the configured Schedule Trigger.
-
----
-
-## Step 8
-
-Verify the generated SQL views inside Azure Synapse.
-
-```
-vw_DimCustomer
-
-vw_DimProduct
-
-vw_DimCalendar
-
-vw_DimTerritory
-
-vw_FactSales
-```
-
----
-
-## Step 9
-
-Open the Power BI report.
-
-```
-AdventureWorks_Dashboard.pbix
-```
-
-Refresh the dataset.
-
-Your dashboard is now ready.
-
----
-
-# 📈 Results
+# Project Results
 
 The project successfully demonstrates:
 
-- Enterprise ETL implementation
+- End-to-end Azure ETL pipeline
+- Medallion Architecture implementation
 - Automated workflow orchestration
-- Medallion Architecture
-- Delta Lake implementation
-- Fact & Dimension modeling
-- Star Schema design
-- Azure Synapse integration
-- Interactive Power BI reporting
+- Delta Lake storage
+- Star Schema data model
+- Analytical SQL views
+- Interactive Power BI dashboard
 
 ---
 
-# 📊 Key Project Metrics
+# Documentation
 
-| Metric | Value |
-|---------|------|
-| Architecture | Medallion |
-| ETL Pipeline | Automated |
-| Layers | Bronze, Silver, Gold |
-| Storage | Azure Data Lake Storage Gen2 |
-| Processing Engine | Azure Databricks |
-| Workflow | Azure Data Factory |
-| Data Warehouse | Azure Synapse Analytics |
-| Reporting | Microsoft Power BI |
-| Data Model | Star Schema |
+Additional documentation is available in the **docs/** folder.
+
+| Document | Description |
+|----------|-------------|
+| Project_Report.pdf | Technical implementation details |
+| User_Guide.pdf | Project usage guide |
+| Installation_Guide.pdf | Deployment instructions |
 
 ---
 
-# 📌 Future Enhancements
+# Results
 
-The current implementation provides a complete batch ETL solution.
+This project demonstrates the implementation of a complete Azure Data Engineering pipeline using modern cloud services and industry-standard architectural patterns.
 
-Potential improvements include:
+## Key Outcomes
 
-- Event Trigger based pipeline execution
+- Implemented an end-to-end ETL pipeline
+- Applied the Medallion Architecture (Bronze → Silver → Gold)
+- Automated workflow orchestration using Azure Data Factory
+- Built a Star Schema with Fact and Dimension tables
+- Published analytical datasets through Azure Synapse Analytics
+- Developed an interactive Power BI dashboard
+- Implemented scalable data transformations using PySpark and Delta Lake
+
+---
+
+# Future Improvements
+
+This project can be extended with additional enterprise features such as:
+
+- Event-based pipeline triggers
 - Incremental data loading
 - Delta MERGE operations
 - Azure Key Vault integration
-- CI/CD using Azure DevOps or GitHub Actions
-- Unit testing for notebooks
-- Data Quality Framework
-- Logging & Audit Tables
-- Monitoring & Alerts
-- Infrastructure as Code using Terraform or Bicep
+- CI/CD using GitHub Actions or Azure DevOps
+- Infrastructure as Code (Terraform or Bicep)
+- Data quality monitoring
+- Logging and alerting
+- Automated Power BI dataset refresh
 
 ---
 
-# 💼 Resume Highlights
+# Learning Outcomes
 
-### Azure End-to-End Data Engineering Pipeline
+Building this project provided practical experience in:
 
-- Built an enterprise-grade Azure Data Engineering solution using Azure Data Lake Storage Gen2, Azure Databricks, Azure Data Factory, Azure Synapse Analytics, and Microsoft Power BI.
-- Implemented the Medallion Architecture (Bronze → Silver → Gold) using PySpark and Delta Lake.
-- Developed reusable ETL notebooks for data cleansing, validation, transformation, and dimensional modeling.
-- Automated end-to-end pipeline orchestration using Azure Data Factory.
-- Published analytical datasets through Azure Synapse and created interactive Power BI dashboards.
+- Azure cloud services
+- ETL pipeline design
+- Data lake architecture
+- Distributed data processing with PySpark
+- Workflow orchestration
+- Data modeling using Star Schema
+- SQL analytics
+- Business intelligence reporting
+- Version control with Git and GitHub
 
 ---
 
-# 🎤 Interview Topics Covered
+# Documentation
 
-This project demonstrates practical experience with:
+Detailed documentation is available in the **docs/** folder.
 
-- Azure Data Engineering
+| Document | Description |
+|----------|-------------|
+| Project_Report.pdf | Technical implementation and architecture |
+| User_Guide.pdf | Instructions for using the project |
+| Installation_Guide.pdf | Deployment and setup guide |
+
+---
+
+# Repository
+
+If you find this project useful, consider giving it a star.
+
+```
+git clone https://github.com/Santhoshkumar-123/azure-end-to-end-data-engineering-pipeline.git
+```
+
+---
+
+# Author
+
+**Santhosh Kumar K G**
+
+Computer Science Postgraduate
+
+Interested in Data Engineering, Cloud Computing, Big Data, and Distributed Data Processing.
+
+**GitHub**
+
+https://github.com/Santhoshkumar-123
+
+**LinkedIn**
+
+https://www.linkedin.com/in/santhosh01kumar/
+
+---
+
+# License
+
+This project is licensed under the MIT License.
+
+See the LICENSE file for more information.
+
+---
+
+# Acknowledgements
+
+This project was built using:
+
+- Microsoft Azure
 - Azure Data Factory
 - Azure Databricks
 - Azure Synapse Analytics
 - Azure Data Lake Storage Gen2
+- Microsoft Power BI
 - Delta Lake
-- PySpark
-- SQL
-- ETL Pipeline
-- Medallion Architecture
-- Data Warehouse
-- Star Schema
-- Fact & Dimension Tables
-- Workflow Automation
-- Power BI
-- Cloud Analytics
+- Apache Spark (PySpark)
+- AdventureWorks Sample Dataset
 
 ---
 
-# 📚 Learning Outcomes
+Thank you for taking the time to explore this project.
 
-Through this project, I gained hands-on experience in:
-
-- Designing scalable cloud-based ETL pipelines
-- Implementing enterprise data engineering patterns
-- Building modern data lake architectures
-- Developing distributed data transformation workflows using PySpark
-- Orchestrating workflows using Azure Data Factory
-- Designing analytical data models
-- Building business intelligence dashboards
-- Managing end-to-end Azure analytics solutions
-
----
-
-# 👨‍💻 Author
-
-**Santhosh Kumar K G**
-
-M.Tech – Computer Science & Engineering
-
-Aspiring Data Engineer
-
-📍 Bengaluru, India
-
-### Connect with me
-
-- LinkedIn: https://www.linkedin.com/in/https://www.linkedin.com/in/santhosh01kumar/
-- GitHub: https://github.com/https://github.com/Santhoshkumar-123 
-
----
-
-# ⭐ Support
-
-If you found this project useful:
-
-⭐ Star this repository
-
-🍴 Fork this repository
-
-📢 Share it with your network
-
----
-
-
-
-<div align="center">
-
-## ⭐ If you like this project, don't forget to star the repository!
-
-### Thank you for visiting.
-
- 
-
-</div>
+Feedback and suggestions are always welcome.
