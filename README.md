@@ -16,10 +16,9 @@ A practical Azure Data Engineering project demonstrating how raw business data i
 ---
 
 # Architecture
+![alt text](Architecture/architecture-diagram.png)
 
-<p align="center">
-<img src="architecture/architecture-diagram.png" width="100%">
-</p>
+
 
 ---
 
@@ -166,7 +165,7 @@ The Bronze layer stores the raw source data exactly as it is received.
 - Sales (2015–2017)
 
 <p align="center">
-<img src="Snapshots/03-bronze-container.png" width="90%">
+<img src="Snapshots/02-bronze-container.png" width="90%">
 </p>
 
 ---
@@ -192,7 +191,7 @@ The Silver layer transforms raw data into clean and standardized datasets using 
 - Territories
 - Returns
 - Sales
-![alt text](image.png)
+ ![alt text](Snapshots/03-Silver-to-Gold.png)
 
 ---
 
