@@ -212,6 +212,9 @@ The Gold layer prepares curated datasets optimized for analytics and reporting.
 
 The Gold layer follows a **Star Schema** design to support efficient analytical queries.
 
+![alt text](Snapshots/04-Gold.png)
+
+
 ---
 
 # Data Model
@@ -261,7 +264,7 @@ Gold_to_Synapse
 - Scheduled execution
 
 <p align="center">
-<img src="Snapshots/05-adf-pipeline.png" width="90%">
+<img src="Snapshots/06-adf-pipeline.png" width="90%">
 </p>
 
 ---
@@ -298,7 +301,7 @@ Power BI connects to Azure Synapse Analytics to provide interactive reporting.
 - Category-wise Sales
 
 <p align="center">
-<img src="Snapshots/08-dashboard.png" width="90%">
+<img src="Snapshots/09-dashboard.png" width="90%">
 </p>
 
 ---
@@ -356,7 +359,7 @@ azure-end-to-end-data-engineering-pipeline/
 ## Azure Data Factory Pipeline
 
 <p align="center">
-<img src="Snapshots/05-adf-pipeline.png" width="95%">
+<img src="Snapshots/06-adf-pipeline.png" width="95%">
 </p>
 
 ---
@@ -372,7 +375,7 @@ azure-end-to-end-data-engineering-pipeline/
 ## Power BI Dashboard
 
 <p align="center">
-<img src="Snapshots/08-dashboard.png" width="95%">
+<img src="Snapshots/09-dashboard.png" width="95%">
 </p>
 
 ---
